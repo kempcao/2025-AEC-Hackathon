@@ -1,0 +1,136 @@
+__author__ = "MarcoMondello"
+__version__ = "2025.02.08"
+__title__ = "evaluate adjacency"
+
+# boiler plate json
+import json
+
+#change file path
+filePath = "C:\\Users\\MarcoMondello\\OneDrive - GROPYUS\\Documents\\AEC Hackaton 2025\\11001.json"
+
+# open json file
+with open(filePath, 'r') as file:
+    data = json.load(file)
+
+#understand rooms
+dictRooms_legends = {}
+roomGeometry = []
+roomName = []
+rooms_ids = data["spaces"]
+for room_key, room in rooms_ids.items():
+	
+	#room unique id
+	room_id = ("_").join(
+		[str(room_key),
+		room.get("apartment") if room.get("apartment") else "",
+		room.get("room_type")
+		])
+	#room geometry from point to lines
+	pts = []
+	# output test geometry
+	roomName.append([room_id])
+	for coordinate in room.get("coordinates"):
+		pts += [[
+			coordinate.get("x"),
+			coordinate.get("y"),
+			coordinate.get("z"),
+			]]
+	
+	lines = [[pts[e], pts[e+1]] for e in range(len(pts)-1)]
+	# Add the last pair: last point and the first point
+	lines.append([pts[-1], pts[0]])
+	geometry = [
+		str(tuple(sorted(line)))
+		for line in lines
+		]
+	if room_id not in dictRooms_legends:
+		dictRooms_legends[room_id] = (geometry,room_id)
+
+#understand walls
+dictWalls_belongsTo  = {}
+dictWalls_geometry = {}
+dictWalls_Legends = {}
+panel_ids = data["panels"]["items"]
+counter = 0
+for panel in panel_ids: 
+
+	#panel is the ID as int
+	item = panel_ids[panel]
+	#panel belongs to room
+	item_room = item["room"]
+	item_apt= item.get("apartment") if item.get("apartment") else ""
+	room_id_temp = ("_").join([item_apt , item_room])
+	#filter rooms with same name
+	test_geometries = [ values
+		for k_room, values in dictRooms_legends.items()
+		if room_id_temp in k_room ]
+	#panel geometry
+	item_startPt = item["start_point"]
+	item_endPt = item["end_point"]
+	geometry = str(tuple(sorted([item_startPt, item_endPt]))) #convert to string
+	room_id = [
+		str( info[1] )  #room_key
+		for info in test_geometries
+		if geometry in info[0] #geometry lines
+		]
+		
+	#pupulate dictionary belongsTo
+	if panel in dictWalls_belongsTo :
+		dictWalls_belongsTo [panel].append(room_id)
+	else:
+		dictWalls_belongsTo [panel] = [room_id]
+	
+	#populate dictionary geometry
+
+	if panel not in dictWalls_geometry :
+		dictWalls_geometry [panel] = (geometry,room_id)
+	
+	#render walls as unique
+	item_type = item["panel_type"] + "_" + str(counter)
+	if geometry not in dictWalls_Legends:
+		counter += 1
+		### MISSING calling walls by walls
+		dictWalls_Legends[geometry] = item_type
+	#other wall characteristics
+
+#define wall adjacency with a rooms
+dictWalls_Adjacency = {}
+for geo_key in dictWalls_Legends.keys():
+	wall_name = (dictWalls_Legends[geo_key])
+	rooms_adjacent = []
+	walls_adjacent = []
+	room_keys = []
+	for wall_k,values in dictWalls_geometry.items():
+		geo = values[0]	
+		belongsTo = values[1]	
+		if geo_key == geo :
+			rooms_adjacent.append(belongsTo)
+			walls_adjacent.append(wall_k)
+			room_keys += [ item.split("_")[0]
+				for item in belongsTo
+				] #it´s a list!
+			
+
+	rooms_adjacent_flattened = [ 
+		item for sublist in rooms_adjacent 
+		for item in sublist 
+		]
+	
+	
+	#cleanup entries
+	adjacentTuple = (
+		list(set(walls_adjacent)),
+		list(set(room_keys))
+		)
+
+	#pupulate dictionary belongsTo
+	if wall_name in dictWalls_belongsTo :
+		dictWalls_Adjacency[wall_name].append(adjacentTuple)
+	else:
+		dictWalls_Adjacency[wall_name] = [adjacentTuple]
+
+output = []
+print("wall_pointers","room_pointers")
+for key, item in dictWalls_Adjacency.items():
+	output += item
+	print(output)
