@@ -5,7 +5,7 @@ import re
 import os
 import numpy as np
 
-def compute_spaces_convex_hull_ratio(data, transport_thresholds = [3.2 , 16.5]):
+def compute_spaces_convex_hull_ratio(data, transport_thresholds = [3.2 , 13.6]):
     """
     Given a JSON dictionary 'data' that contains 'spaces' with their coordinates and room types,
     compute the ratio of the sum of areas of [bathroom, corridor, bedroom, kitchen]
