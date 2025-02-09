@@ -1,0 +1,75 @@
+{
+    "panels": {
+        "items": {
+            "0": {
+                "panel_type": "WAL_21 WAL_33",
+                "start_point": [
+                    18.9,
+                    9.96,
+                    0
+                ],
+                "end_point": [
+                    18.9,
+                    7.96,
+                    0
+                ],
+                "height": 3,
+                "thickness": 0.2,
+                "room": "bathroom",
+                "apartment": "Apartment 1"
+            },
+            "1": {
+                "panel_type": "WAL_33",
+                "start_point": [
+                    18.9,
+                    7.96,
+                    0
+                ],
+                "end_point": [
+                    21.84,
+                    7.96,
+                    0
+                ],
+                "height": 3,
+                "thickness": 0.2,
+                "room": "bathroom",
+                "apartment": "Apartment 1"
+            },
+            "4": {
+                "panel_type": "WAL_21",
+                "start_point": [
+                    18.9,
+                    7.96,
+                    0
+                ],
+                "end_point": [
+                    18.9,
+                    3.45,
+                    0
+                ],
+                "height": 3,
+                "thickness": 0.2,
+                "room": "living_room",
+                "apartment": "Apartment 1"
+            },
+            "5": {
+                "panel_type": "WAL_21",
+                "start_point": [
+                    18.9,
+                    3.45,
+                    0
+                ],
+                "end_point": [
+                    28.18,
+                    3.45,
+                    0
+                ],
+                "height": 3,
+                "thickness": 0.2,
+                "room": "living_room",
+                "apartment": "Apartment 1"
+            }
+        }
+    },
+    "room_adjacency": {
+        "bathroom": 
