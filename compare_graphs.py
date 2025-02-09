@@ -18,13 +18,8 @@ args = parser.parse_args()
 G_1 = nx.read_graphml(args.file_path_1, force_multigraph = True)
 G_2 = nx.read_graphml(args.file_path_2, force_multigraph = True)
 
-
 nx.graph_edit_distance(G_1, G_2)
-
-
 #similarity = nx.simrank_similarity(G_1, G_2)
-
-print(similarity)
 
 sys.exit()
 #Comparison of level 1

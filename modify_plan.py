@@ -122,7 +122,7 @@ class PrefabOptimizer:
             'default': self._fit_standard_room
         }
 
-     def _calculate_hull_ratio(self, apartment: Apartment) -> float:
+    def _calculate_hull_ratio(self, apartment: Apartment) -> float:
         """Calculate convex hull ratio for relevant rooms in apartment"""
         relevant_rooms = [r for r in apartment.rooms 
                         if r.type in self.relevant_types]
@@ -168,6 +168,8 @@ class PrefabOptimizer:
 
     def _process_room_type(self, apartment: Apartment, room_type: str, 
                          prefab: PrefabPart, threshold: float):
+
+        return
         """Handle optimization for specific room type"""
         target_rooms = [r for r in apartment.rooms if r.type == room_type]
         if not target_rooms:
@@ -247,21 +249,7 @@ class PrefabOptimizer:
         return (target.centroid.x - source.centroid.x,
                 target.centroid.y - source.centroid.y)
 
-    def _calculate_hull_ratio(self, apartment: Apartment) -> float:
-        """Calculate space efficiency metric"""
-        relevant_geoms = [r.geometry for r in apartment.rooms 
-                        if r.type in self.relevant_types
-                        and r.geometry.is_valid]
-        
-        if not relevant_geoms:
-            return 0.0
-            
-        try:
-            union = unary_union(relevant_geoms)
-            hull = union.convex_hull
-            return union.area / hull.area if hull.area > 0 else 0.0
-        except:
-            return 0.0
+
 
     def load_from_json(self, json_path: str) -> List[Apartment]:
         """Load and validate apartment data from JSON"""
@@ -393,7 +381,12 @@ def apply_prefab(apt: Apartment, prefab: PrefabPart, target_room: Polygon):
     apt.floorplan[prefab.type] = prefab.geometry
 
 
+
 def draw_floorplan(apartment: Apartment, title="Floor Plan"):
+    """
+    Draw the floorplan of an apartment, flipping the geometry along the x-axis
+    so that the drawing appears upside down.
+    """
     fig, ax = plt.subplots(figsize=(10, 10))
     ax.set_title(title)
     ax.set_aspect('equal')
@@ -418,21 +411,22 @@ def draw_floorplan(apartment: Apartment, title="Floor Plan"):
             if cleaned_geom.is_empty:
                 continue
                 
+            # Flip the geometry along the x-axis:
+            # This multiplies all y-coordinates by -1.
+            flipped_geom = affinity.scale(cleaned_geom, xfact=1, yfact=-1, origin=(0, 0))
+            
             try:
-                x, y = cleaned_geom.exterior.xy
+                x, y = flipped_geom.exterior.xy
                 color = colors.get(room_type, '#888888')
                 ax.fill(x, y, fc=color, ec='black', alpha=0.7, label=room_type)
                 
-                centroid = cleaned_geom.centroid
+                centroid = flipped_geom.centroid
                 ax.text(centroid.x, centroid.y, f"{room_type}\n{geometry.area:.1f}m²", 
-                        ha='center', va='center', fontsize=6,
+                        ha='center', va='center', fontsize=10,
                         bbox=dict(facecolor='white', alpha=0.8, edgecolor='none'))
             except Exception as e:
                 print(f"Error drawing {room_type} #{i}: {str(e)}")
                 continue
-    
-    # Rest of the function remains the same...
-    # [Keep the legend, bounds calculation, and grid setup from previous version]
     
     plt.show()
 # Example usage
