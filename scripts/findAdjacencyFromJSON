@@ -5,7 +5,6 @@ __title__ = "evaluate adjacency"
 # boiler plate json
 import json
 
-#change file path
 filePath = "C:\\Users\\MarcoMondello\\OneDrive - GROPYUS\\Documents\\AEC Hackaton 2025\\11001.json"
 
 # open json file
@@ -52,6 +51,7 @@ dictWalls_geometry = {}
 dictWalls_Legends = {}
 panel_ids = data["panels"]["items"]
 counter = 0
+dictRooms_Adjacency = {}
 for panel in panel_ids: 
 
 	#panel is the ID as int
@@ -109,6 +109,16 @@ for geo_key in dictWalls_Legends.keys():
 			room_keys += [ item.split("_")[0]
 				for item in belongsTo
 				] #it´s a list!
+	
+	for key in room_keys:
+		
+		other_keys = [k for k in room_keys if k != key]
+		
+		for m in other_keys:
+			if key not in dictRooms_Adjacency:
+				dictRooms_Adjacency[key] = [m]
+			elif m not in dictRooms_Adjacency[key]:
+				dictRooms_Adjacency[key].append(m)
 			
 
 	rooms_adjacent_flattened = [ 
@@ -123,14 +133,4 @@ for geo_key in dictWalls_Legends.keys():
 		list(set(room_keys))
 		)
 
-	#pupulate dictionary belongsTo
-	if wall_name in dictWalls_belongsTo :
-		dictWalls_Adjacency[wall_name].append(adjacentTuple)
-	else:
-		dictWalls_Adjacency[wall_name] = [adjacentTuple]
-
-output = []
-print("wall_pointers","room_pointers")
-for key, item in dictWalls_Adjacency.items():
-	output += item
-	print(output)
+print(sorted(dictRooms_Adjacency))
