@@ -51,10 +51,10 @@ The JSON file contains the following hierarchy:
 This structured data enables efficient processing and analysis of floorplans, forming the foundation for subsequent steps in the workflow.
 
 ### Team
-- **Evangelos Pantazis** / ZHAW - Senior Researcher  
-- **Jianpeng Cao** / HKU - Assistant Professor in the Department of Real Estate and Construction  
-- **Konrad Graser** / ZHAW - Research/Program Manager  
 - **Furio Sordini** / Implenia - Digital Design and Innovation Manager  
+- **Jianpeng Cao** / HKU - Assistant Professor in the Department of Real Estate and Construction
+- **Evangelos Pantazis** / ZHAW - Senior Researcher    
+- **Konrad Graser** / ZHAW - Research/Program Manager  
 - **Giulia Curletto** / Implenia - Digital Design and Innovation Manager
 
 ### Funding Partner
