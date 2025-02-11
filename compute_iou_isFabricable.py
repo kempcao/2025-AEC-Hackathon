@@ -147,14 +147,7 @@ def load_jsons_and_compute_ratios(base_json_folder):
 if __name__ == "__main__":
 
 
-    json_folder_path = "C:\\Users\MarcoMondello\\OneDrive - GROPYUS\\Documents\\AEC Hackaton 2025"
-
-    # Get a list of all items in the directory and filter by folders
-    #results = load_jsons_and_compute_ratios(json_folder_path)
-
-    #print(results)
-
-
+    #possible code to get if iou is fabricable
     with open('C:\\Users\\MarcoMondello\\OneDrive - GROPYUS\\Documents\\AEC Hackaton 2025\\json\\12009.json', 'r') as file:
         data = json.load(file) 
 

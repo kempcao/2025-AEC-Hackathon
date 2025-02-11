@@ -50,6 +50,59 @@ The JSON file contains the following hierarchy:
 
 This structured data enables efficient processing and analysis of floorplans, forming the foundation for subsequent steps in the workflow.
 
+## Solution
+
+The solution leverages a collection of Python tools and algorithms to enable the transition from arbitrary designs to industrialized, modular construction systems. The key components are:
+  - Graph Representation & Analysis:
+    - Graph Creation: Tools parse JSON data to generate graphs (GraphML) that represent spatial relationships between rooms and panels.
+    - Graph Comparison: Scripts compute metrics such as graph edit distance, SimRank similarity, and netLSD signatures to compare generic floorplans with a reference design.
+    - Visualization: Both interactive (via PyVis) and static (using Matplotlib) visualizations are provided to analyze and validate the graphs.
+  - Space Efficiency Analysis:
+    - Convex Hull Ratio: Functions compute the ratio of the total area of relevant spaces (e.g., bathrooms, corridors, kitchens, bedrooms) to the area of their convex hull. This metric serves as a measure of spatial efficiency.
+    - IoU Calculations: Algorithms assess the overlap between rooms and prefab parts to evaluate fit and fabricability.
+  - Prefabricated Part Optimization:
+    - Prefab Modeling: Classes define prefabricated parts (such as corridors, kitchens, bathrooms) with geometric and area constraints.
+    - Floorplan Adaptation: An optimizer uses strategies (scaling, alignment, and translation) to modify room geometries so that prefab parts can be integrated into the design.
+    - Visualization of Optimized Plans: The modified floorplans are rendered to help evaluate the success of the prefab integration.
+
+These tools work together to allow the automated analysis and adaptation of a generic floorplan into one that meets the standards of industrialized construction. The overall goal is to enable a kit-of-parts logic that can be applied to any floorplan.
+
+### Usage
+Each script focuses on a specific aspect of the workflow. Here are some example usages:
+- Graph Comparison and Visualization:
+Run the graph comparison tool to visualize similarities between a generic design and the reference:
+
+```
+python compare_graphs.py /path/to/graphml_1 /path/to/graphml_2
+```
+The tool produces interactive HTML visualizations and static plots.
+
+- IoU and Fabricability Checks:
+To compute IoU metrics for room fitting:
+
+```
+python compute_iou.py /path/to/your/json_file.json
+```
+- Floorplan Optimization (Not Completed):
+Optimize and visualize the integration of prefabricated parts into a floorplan:
+
+```
+python modify_plan.py
+```
+Ensure the JSON file paths and prefab parameters are correctly set within the script.
+
+- Interactive Graph Visualization:
+
+Open the provided HTML files (my_interactive_graph.html, my_interactive_graph_2.html) in your web browser to explore the spatial graphs interactively.
+
+### Dependencies
+Install dependencies via pip:
+```
+pip install numpy shapely networkx matplotlib pyvis netlsd descartes scikit-learn
+
+```
+
+
 ### Team
 - **Furio Sordini** / Implenia - Digital Design and Innovation Manager  
 - **Jianpeng Cao** / HKU - Assistant Professor in the Department of Real Estate and Construction
