@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d9" for="edge" attr.name="type" attr.type="string" />
+  <key id="d8" for="node" attr.name="thickness" attr.type="double" />
+  <key id="d7" for="node" attr.name="height" attr.type="double" />
+  <key id="d6" for="node" attr.name="end_point" attr.type="string" />
+  <key id="d5" for="node" attr.name="start_point" attr.type="string" />
+  <key id="d4" for="node" attr.name="panel_type" attr.type="string" />
+  <key id="d3" for="node" attr.name="coordinates" attr.type="string" />
+  <key id="d2" for="node" attr.name="apartment" attr.type="string" />
+  <key id="d1" for="node" attr.name="room_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="type" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="room_10">
+      <data key="d0">room</data>
+      <data key="d1">kitchen</data>
+      <data key="d2">Apartment 2</data>
+      <data key="d3">36.38,23.42;34.78,24.34;33.37,22.11;35.02,21.19;36.38,23.42</data>
+    </node>
+    <node id="53">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_01_CNI_REN</data>
+      <data key="d5">[34.78, 24.34, 0]</data>
+      <data key="d6">[33.37, 22.11, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">kitchen</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="55">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_40_STD_REN</data>
+      <data key="d5">[35.02, 21.19, 0]</data>
+      <data key="d6">[36.38, 23.42, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">kitchen</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="48">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_45_STD_TIL  </data>
+      <data key="d5">[38.66, 22.02, 0]</data>
+      <data key="d6">[36.38, 23.42, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">bathroom</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="52">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_40_STD_REN</data>
+      <data key="d5">[36.38, 23.42, 0]</data>
+      <data key="d6">[34.78, 24.34, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">kitchen</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="49">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_45_STD_TIL  </data>
+      <data key="d5">[36.38, 23.42, 0]</data>
+      <data key="d6">[35.02, 21.19, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">bathroom</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="46">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_43_STD_REN</data>
+      <data key="d5">[38.66, 22.02, 0]</data>
+      <data key="d6">[37.25, 19.79, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">corridor</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="51">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_45_STD_TIL  </data>
+      <data key="d5">[37.25, 19.79, 0]</data>
+      <data key="d6">[38.66, 22.02, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">bathroom</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="54">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_40_STD_REN</data>
+      <data key="d5">[33.37, 22.11, 0]</data>
+      <data key="d6">[35.02, 21.19, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">kitchen</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="room_9">
+      <data key="d0">room</data>
+      <data key="d1">bathroom</data>
+      <data key="d2">Apartment 2</data>
+      <data key="d3">38.66,22.02;36.38,23.42;35.02,21.19;37.25,19.79;38.66,22.02</data>
+    </node>
+    <node id="47">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_40_STD_REN</data>
+      <data key="d5">[37.25, 19.79, 0]</data>
+      <data key="d6">[38.32, 19.11, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">corridor</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="50">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_45_STD_TIL  </data>
+      <data key="d5">[35.02, 21.19, 0]</data>
+      <data key="d6">[37.25, 19.79, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">bathroom</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="45">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_40_STD_REN</data>
+      <data key="d5">[39.68, 21.44, 0]</data>
+      <data key="d6">[38.66, 22.02, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">corridor</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <node id="room_8">
+      <data key="d0">room</data>
+      <data key="d1">corridor</data>
+      <data key="d2">Apartment 2</data>
+      <data key="d3">38.32,19.11;39.68,21.44;38.66,22.02;37.25,19.79;38.32,19.11</data>
+    </node>
+    <node id="44">
+      <data key="d0">wall</data>
+      <data key="d4">WAL_01_CNI_REN</data>
+      <data key="d5">[38.32, 19.11, 0]</data>
+      <data key="d6">[39.68, 21.44, 0]</data>
+      <data key="d7">3.0</data>
+      <data key="d8">0.2</data>
+      <data key="d1">corridor</data>
+      <data key="d2">Apartment 2</data>
+    </node>
+    <edge source="room_10" target="52">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="room_10" target="53">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="room_10" target="54">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="room_10" target="55">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="55" target="49">
+      <data key="d9">identical</data>
+    </edge>
+    <edge source="48" target="room_9">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="49" target="room_9">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="46" target="room_8">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="46" target="51">
+      <data key="d9">identical</data>
+    </edge>
+    <edge source="51" target="room_9">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="room_9" target="50">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="47" target="room_8">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="45" target="room_8">
+      <data key="d9">belongs_to</data>
+    </edge>
+    <edge source="room_8" target="44">
+      <data key="d9">belongs_to</data>
+    </edge>
+  </graph>
+</graphml>
